@@ -17,10 +17,10 @@
   --earthy-brown-light: #a0572a;
   --earthy-brown-dark: #6b3410;
   
-  /* Neutral Colors */
-  --white: #ffffff;
-  --off-white: #fafafa;
-  --light-gray: #f5f5f5;
+  /* Scout Theme - Darker Beige/Khaki Colors */
+  --white: #E8DCC6;        /* Darker scout shirt beige */
+  --off-white: #DDD1B3;    /* Medium khaki */
+  --light-gray: #D2C5A8;   /* Darker tan beige */
   --gray: #666666;
   --dark-gray: #333333;
   --black: #1a1a1a;

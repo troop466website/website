@@ -571,37 +571,18 @@ function loadCalendarEvents() {
 }
 
 function displayCalendarEvents(events) {
-    const activitiesGrid = document.getElementById('activities-grid');
-    if (!activitiesGrid) return;
+    // Target the calendar grid instead of activities grid
+    const calendarGrid = document.querySelector('.calendar-grid');
+    if (!calendarGrid) return;
     
-    // Clear existing placeholder content
-    activitiesGrid.innerHTML = '';
+    console.log('Loading calendar events into calendar section, not activities');
     
-    events.forEach(event => {
-        const date = new Date(event.date);
-        const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        
-        const activityCard = document.createElement('div');
-        activityCard.className = 'activity-card stagger-item';
-        activityCard.innerHTML = `
-            <div class="activity-date">
-                <span class="date-day">${date.getDate()}</span>
-                <span class="date-month">${monthNames[date.getMonth()]}</span>
-            </div>
-            <div class="activity-content">
-                <h3 class="activity-title">${event.title}</h3>
-                <p class="activity-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    ${event.location}
-                </p>
-                <p class="activity-description">${event.description}</p>
-                <a href="#" class="btn btn-outline">Sign Up</a>
-            </div>
-        `;
-        
-        activitiesGrid.appendChild(activityCard);
-    });
+    // Don't clear calendar grid as it has existing event cards
+    // Just log that we're not interfering with activities
+    console.log('Calendar events loaded without affecting Activities section');
+    
+    // The calendar section already has static event cards in HTML
+    // This function can be used for future dynamic loading if needed
 }
 
 // ===== EVENT HANDLERS =====
@@ -780,25 +761,48 @@ document.addEventListener('DOMContentLoaded', initTouchGestures);
 
 // ===== LEADERSHIP PAGINATION =====
 let currentLeadershipPage = 1;
-const totalLeadershipPages = 2;
+const totalLeadershipPages = 3;
 
 // ===== ABOUT PAGINATION =====
 let currentAboutPage = 1;
-const totalAboutPages = 5;
+const totalAboutPages = 6;
+
+// ===== ACTIVITIES PAGINATION =====
+let currentActivitiesPage = 1;
+const totalActivitiesPages = 6;
 
 function changePage(direction) {
+    console.log('changePage called with direction:', direction);
+    console.log('Current page:', currentLeadershipPage);
+    
     const newPage = currentLeadershipPage + direction;
+    console.log('New page would be:', newPage);
+    console.log('Total pages:', totalLeadershipPages);
     
     if (newPage >= 1 && newPage <= totalLeadershipPages) {
+        console.log('Valid page range, showing page:', newPage);
         showLeadershipPage(newPage);
+    } else {
+        console.log('Page', newPage, 'is out of range (1 -', totalLeadershipPages, ')');
     }
 }
 
 function showLeadershipPage(pageNumber) {
+    console.log('=== SHOWING LEADERSHIP PAGE ===');
+    console.log('Page number:', pageNumber, 'Type:', typeof pageNumber);
+    console.log('Total pages:', totalLeadershipPages, 'Type:', typeof totalLeadershipPages);
+    
     const pages = document.querySelectorAll('.leadership-page');
     const indicators = document.querySelectorAll('.page-indicator');
     const prevArrow = document.getElementById('prev-arrow');
     const nextArrow = document.getElementById('next-arrow');
+    
+    console.log('Found elements:', {
+        pages: pages.length,
+        indicators: indicators.length,
+        prevArrow: !!prevArrow,
+        nextArrow: !!nextArrow
+    });
     
     // Hide all pages
     pages.forEach(page => {
@@ -807,6 +811,8 @@ function showLeadershipPage(pageNumber) {
     
     // Show target page - be specific to select only leadership pages
     const targetPage = document.querySelector(`.leadership-page[data-page="${pageNumber}"]`);
+    console.log('Target page found:', !!targetPage);
+    
     if (targetPage) {
         setTimeout(() => {
             targetPage.classList.add('active');
@@ -821,18 +827,47 @@ function showLeadershipPage(pageNumber) {
         }
     });
     
-    // Update arrow states
+    // Update arrow states - let CSS handle styling
     if (prevArrow) {
-        prevArrow.disabled = pageNumber === 1;
+        const shouldDisablePrev = pageNumber <= 1;
+        console.log('PREV ARROW - Page:', pageNumber, '<=', 1, '=', shouldDisablePrev);
+        prevArrow.disabled = shouldDisablePrev;
+        console.log('Prev arrow disabled:', prevArrow.disabled);
     }
+    
     if (nextArrow) {
-        nextArrow.disabled = pageNumber === totalLeadershipPages;
+        const shouldDisableNext = pageNumber >= totalLeadershipPages;
+        console.log('=== NEXT ARROW DEBUG ===');
+        console.log('pageNumber:', pageNumber, '(type:', typeof pageNumber, ')');
+        console.log('totalLeadershipPages:', totalLeadershipPages, '(type:', typeof totalLeadershipPages, ')');
+        console.log('Comparison:', pageNumber, '>=', totalLeadershipPages, '=', shouldDisableNext);
+        
+        nextArrow.disabled = shouldDisableNext;
+        
+        console.log('Next arrow disabled:', nextArrow.disabled);
+        console.log('Next arrow hasAttribute disabled:', nextArrow.hasAttribute('disabled'));
+        
+        // Force reflow to apply CSS changes
+        nextArrow.offsetHeight;
+        
+        // Check computed styles after reflow
+        setTimeout(() => {
+            const computed = window.getComputedStyle(nextArrow);
+            console.log('=== FINAL COMPUTED STYLES ===');
+            console.log('computed opacity:', computed.opacity);
+            console.log('computed cursor:', computed.cursor);
+            console.log('computed pointer-events:', computed.pointerEvents);
+        }, 10);
     }
     
     currentLeadershipPage = pageNumber;
+    console.log('=== END LEADERSHIP PAGE UPDATE ===');
 }
 
 function initLeadershipPagination() {
+    console.log('=== INITIALIZING LEADERSHIP PAGINATION ===');
+    console.log('Current totalLeadershipPages:', totalLeadershipPages);
+    
     // Add click handlers to page indicators - wait for DOM to be ready
     const indicators = document.querySelectorAll('.page-indicator');
     console.log('Found', indicators.length, 'page indicators'); // Debug log
@@ -845,7 +880,20 @@ function initLeadershipPagination() {
         });
     });
     
+    // Force clear any disabled states first
+    const prevArrow = document.getElementById('prev-arrow');
+    const nextArrow = document.getElementById('next-arrow');
+    if (prevArrow) {
+        prevArrow.classList.remove('disabled');
+        prevArrow.removeAttribute('disabled');
+    }
+    if (nextArrow) {
+        nextArrow.classList.remove('disabled');
+        nextArrow.removeAttribute('disabled');
+    }
+    
     // Initialize first page
+    console.log('Initializing with page 1');
     showLeadershipPage(1);
     
     // Add touch gestures for leadership section
@@ -1026,12 +1074,213 @@ function initAboutPagination() {
     }
 }
 
-// Add leadership and about pagination to initialization
+function changeActivitiesPage(direction) {
+    const newPage = currentActivitiesPage + direction;
+    
+    if (newPage >= 1 && newPage <= totalActivitiesPages) {
+        showActivitiesPage(newPage);
+    }
+}
+
+function showActivitiesPage(pageNumber, direction = 'next') {
+    const pages = document.querySelectorAll('.activities-page');
+    const indicators = document.querySelectorAll('.activities-page-indicator');
+    const prevArrow = document.getElementById('activities-prev-arrow');
+    const nextArrow = document.getElementById('activities-next-arrow');
+    
+    // Get current and target pages
+    const currentPage = document.querySelector('.activities-page.active');
+    const targetPage = document.querySelector(`.activities-page[data-page="${pageNumber}"]`);
+    
+    if (!targetPage || pageNumber === currentActivitiesPage) return;
+    
+    // Determine slide direction
+    const slideDirection = pageNumber > currentActivitiesPage ? 'next' : 'prev';
+    
+    // Prepare target page for animation
+    if (slideDirection === 'next') {
+        targetPage.style.transform = 'translateX(100%)';
+    } else {
+        targetPage.style.transform = 'translateX(-100%)';
+    }
+    targetPage.style.opacity = '0';
+    targetPage.classList.add('active');
+    targetPage.style.pointerEvents = 'all';
+    
+    // Force reflow to ensure initial position is set
+    targetPage.offsetHeight;
+    
+    // Animate transition
+    requestAnimationFrame(() => {
+        // Slide out current page
+        if (currentPage) {
+            if (slideDirection === 'next') {
+                currentPage.style.transform = 'translateX(-100%)';
+            } else {
+                currentPage.style.transform = 'translateX(100%)';
+            }
+            currentPage.style.opacity = '0';
+        }
+        
+        // Slide in target page
+        targetPage.style.transform = 'translateX(0)';
+        targetPage.style.opacity = '1';
+    });
+    
+    // Clean up after animation
+    setTimeout(() => {
+        pages.forEach(page => {
+            if (page !== targetPage) {
+                page.classList.remove('active');
+                page.style.pointerEvents = 'none';
+                page.style.transform = '';
+                page.style.opacity = '';
+            }
+        });
+        
+        // Reset target page styles
+        targetPage.style.transform = '';
+        targetPage.style.opacity = '';
+    }, 600); // Match CSS transition duration
+    
+    // Update indicators
+    indicators.forEach(indicator => {
+        indicator.classList.remove('active');
+        if (parseInt(indicator.getAttribute('data-page')) === pageNumber) {
+            indicator.classList.add('active');
+        }
+    });
+    
+    // Update arrow states
+    if (prevArrow) {
+        prevArrow.disabled = pageNumber === 1;
+    }
+    if (nextArrow) {
+        nextArrow.disabled = pageNumber === totalActivitiesPages;
+    }
+    
+    currentActivitiesPage = pageNumber;
+}
+
+function initActivitiesPagination() {
+    console.log('=== INITIALIZING ACTIVITIES PAGINATION ===');
+    
+    // Reset all activities pages first
+    const allActivitiesPages = document.querySelectorAll('.activities-page');
+    console.log('Found activities pages:', allActivitiesPages.length);
+    
+    // Clear any inline styles that might interfere with transitions
+    allActivitiesPages.forEach((page, index) => {
+        page.classList.remove('active');
+        // Clear inline styles to let CSS handle transitions
+        page.style.opacity = '';
+        page.style.transform = '';
+        page.style.pointerEvents = '';
+        page.style.position = '';
+        page.style.zIndex = '';
+        console.log('Reset activities page', index + 1);
+    });
+    
+    // Set first page as active using CSS classes only
+    const firstPage = document.querySelector('.activities-page[data-page="1"]');
+    if (firstPage) {
+        console.log('Setting first activities page as active');
+        firstPage.classList.add('active');
+    }
+    
+    // Update indicators
+    const indicators = document.querySelectorAll('.activities-page-indicator');
+    console.log('Found', indicators.length, 'activities page indicators');
+    
+    indicators.forEach((indicator, index) => {
+        indicator.classList.remove('active');
+        if (indicator.getAttribute('data-page') === '1') {
+            indicator.classList.add('active');
+        }
+        
+        indicator.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const pageNumber = parseInt(this.getAttribute('data-page'));
+            console.log('Clicked activities indicator for page:', pageNumber);
+            showActivitiesPage(pageNumber);
+        });
+    });
+    
+    // Update arrows
+    const prevArrow = document.getElementById('activities-prev-arrow');
+    const nextArrow = document.getElementById('activities-next-arrow');
+    
+    if (prevArrow) {
+        prevArrow.disabled = true;
+        console.log('Disabled prev arrow for first page');
+    }
+    if (nextArrow) {
+        nextArrow.disabled = false;
+        console.log('Enabled next arrow');
+    }
+    
+    currentActivitiesPage = 1;
+    
+    // Add touch gestures for activities section
+    const activitiesGrid = document.getElementById('activities-grid');
+    if (activitiesGrid) {
+        let startX, currentX, isDragging = false;
+        const threshold = 50;
+        
+        activitiesGrid.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+        
+        activitiesGrid.addEventListener('touchmove', function(e) {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+        });
+        
+        activitiesGrid.addEventListener('touchend', function() {
+            if (!isDragging) return;
+            
+            const diffX = startX - currentX;
+            
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    // Swipe left - next page
+                    changeActivitiesPage(1);
+                } else {
+                    // Swipe right - previous page
+                    changeActivitiesPage(-1);
+                }
+            }
+            
+            isDragging = false;
+        });
+    }
+    
+    console.log('=== ACTIVITIES PAGINATION INITIALIZATION COMPLETE ===');
+}
+
+// Add leadership, about, and activities pagination to initialization
 document.addEventListener('DOMContentLoaded', function() {
     initializeWebsite();
     // Increase timeout to ensure DOM is fully ready
     setTimeout(() => {
         initLeadershipPagination();
         initAboutPagination();
-    }, 500);
+        initActivitiesPagination();
+    }, 100);
+});
+
+// Add additional initialization check for Activities section
+window.addEventListener('load', function() {
+    // Double-check Activities initialization after all resources are loaded
+    setTimeout(() => {
+        const activitiesSection = document.querySelector('#activities');
+        const firstActivitiesPage = document.querySelector('.activities-page[data-page="1"]');
+        
+        if (activitiesSection && firstActivitiesPage && !firstActivitiesPage.classList.contains('active')) {
+            console.log('Re-initializing Activities pagination...');
+            initActivitiesPagination();
+        }
+    }, 200);
 });
