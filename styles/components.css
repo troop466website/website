@@ -1840,24 +1840,32 @@ input:checked + .slider .night-icon {
 /* Leadership Grid - 2 Column Layout */
 .leadership-grid {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   min-height: 800px;
   margin-bottom: var(--space-4);
+  isolation: isolate;
 }
 
 .leadership-page {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
   opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(100%);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  min-height: 500px;
+  padding: var(--space-4) 0;
 }
 
 .leadership-page.active {
-  display: grid;
   opacity: 1;
   transform: translateX(0);
+  pointer-events: all;
 }
 
 /* Compact Leader Cards */
@@ -2091,6 +2099,25 @@ input:checked + .slider .night-icon {
     0 2px 8px rgba(0, 0, 0, 0.05);
   background: rgba(255, 255, 255, 0.7);
   color: var(--gray);
+}
+
+/* Override for specifically enabled arrows */
+.nav-arrow:not(:disabled) {
+  opacity: 1 !important;
+  cursor: pointer !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: var(--forest-green) !important;
+  pointer-events: all !important;
+}
+
+.nav-arrow:not(:disabled):hover {
+  background: var(--forest-green) !important;
+  color: var(--white) !important;
+  transform: translateY(-50%) scale(1.1) !important;
+  box-shadow:
+    0 8px 32px rgba(45, 80, 22, 0.25),
+    0 4px 16px rgba(45, 80, 22, 0.15) !important;
+  border-color: var(--forest-green) !important;
 }
 
 /* Page Indicators - Standalone Centered */

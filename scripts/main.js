@@ -780,25 +780,44 @@ document.addEventListener('DOMContentLoaded', initTouchGestures);
 
 // ===== LEADERSHIP PAGINATION =====
 let currentLeadershipPage = 1;
-const totalLeadershipPages = 2;
+const totalLeadershipPages = 3;
 
 // ===== ABOUT PAGINATION =====
 let currentAboutPage = 1;
 const totalAboutPages = 5;
 
 function changePage(direction) {
+    console.log('changePage called with direction:', direction);
+    console.log('Current page:', currentLeadershipPage);
+    
     const newPage = currentLeadershipPage + direction;
+    console.log('New page would be:', newPage);
+    console.log('Total pages:', totalLeadershipPages);
     
     if (newPage >= 1 && newPage <= totalLeadershipPages) {
+        console.log('Valid page range, showing page:', newPage);
         showLeadershipPage(newPage);
+    } else {
+        console.log('Page', newPage, 'is out of range (1 -', totalLeadershipPages, ')');
     }
 }
 
 function showLeadershipPage(pageNumber) {
+    console.log('=== SHOWING LEADERSHIP PAGE ===');
+    console.log('Page number:', pageNumber, 'Type:', typeof pageNumber);
+    console.log('Total pages:', totalLeadershipPages, 'Type:', typeof totalLeadershipPages);
+    
     const pages = document.querySelectorAll('.leadership-page');
     const indicators = document.querySelectorAll('.page-indicator');
     const prevArrow = document.getElementById('prev-arrow');
     const nextArrow = document.getElementById('next-arrow');
+    
+    console.log('Found elements:', {
+        pages: pages.length,
+        indicators: indicators.length,
+        prevArrow: !!prevArrow,
+        nextArrow: !!nextArrow
+    });
     
     // Hide all pages
     pages.forEach(page => {
@@ -807,6 +826,8 @@ function showLeadershipPage(pageNumber) {
     
     // Show target page - be specific to select only leadership pages
     const targetPage = document.querySelector(`.leadership-page[data-page="${pageNumber}"]`);
+    console.log('Target page found:', !!targetPage);
+    
     if (targetPage) {
         setTimeout(() => {
             targetPage.classList.add('active');
@@ -821,18 +842,47 @@ function showLeadershipPage(pageNumber) {
         }
     });
     
-    // Update arrow states
+    // Update arrow states - let CSS handle styling
     if (prevArrow) {
-        prevArrow.disabled = pageNumber === 1;
+        const shouldDisablePrev = pageNumber <= 1;
+        console.log('PREV ARROW - Page:', pageNumber, '<=', 1, '=', shouldDisablePrev);
+        prevArrow.disabled = shouldDisablePrev;
+        console.log('Prev arrow disabled:', prevArrow.disabled);
     }
+    
     if (nextArrow) {
-        nextArrow.disabled = pageNumber === totalLeadershipPages;
+        const shouldDisableNext = pageNumber >= totalLeadershipPages;
+        console.log('=== NEXT ARROW DEBUG ===');
+        console.log('pageNumber:', pageNumber, '(type:', typeof pageNumber, ')');
+        console.log('totalLeadershipPages:', totalLeadershipPages, '(type:', typeof totalLeadershipPages, ')');
+        console.log('Comparison:', pageNumber, '>=', totalLeadershipPages, '=', shouldDisableNext);
+        
+        nextArrow.disabled = shouldDisableNext;
+        
+        console.log('Next arrow disabled:', nextArrow.disabled);
+        console.log('Next arrow hasAttribute disabled:', nextArrow.hasAttribute('disabled'));
+        
+        // Force reflow to apply CSS changes
+        nextArrow.offsetHeight;
+        
+        // Check computed styles after reflow
+        setTimeout(() => {
+            const computed = window.getComputedStyle(nextArrow);
+            console.log('=== FINAL COMPUTED STYLES ===');
+            console.log('computed opacity:', computed.opacity);
+            console.log('computed cursor:', computed.cursor);
+            console.log('computed pointer-events:', computed.pointerEvents);
+        }, 10);
     }
     
     currentLeadershipPage = pageNumber;
+    console.log('=== END LEADERSHIP PAGE UPDATE ===');
 }
 
 function initLeadershipPagination() {
+    console.log('=== INITIALIZING LEADERSHIP PAGINATION ===');
+    console.log('Current totalLeadershipPages:', totalLeadershipPages);
+    
     // Add click handlers to page indicators - wait for DOM to be ready
     const indicators = document.querySelectorAll('.page-indicator');
     console.log('Found', indicators.length, 'page indicators'); // Debug log
@@ -845,7 +895,20 @@ function initLeadershipPagination() {
         });
     });
     
+    // Force clear any disabled states first
+    const prevArrow = document.getElementById('prev-arrow');
+    const nextArrow = document.getElementById('next-arrow');
+    if (prevArrow) {
+        prevArrow.classList.remove('disabled');
+        prevArrow.removeAttribute('disabled');
+    }
+    if (nextArrow) {
+        nextArrow.classList.remove('disabled');
+        nextArrow.removeAttribute('disabled');
+    }
+    
     // Initialize first page
+    console.log('Initializing with page 1');
     showLeadershipPage(1);
     
     // Add touch gestures for leadership section
