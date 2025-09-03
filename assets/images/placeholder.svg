@@ -1,0 +1,25 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d5016;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4a90e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <!-- Mountain silhouettes -->
+  <polygon points="0,400 150,250 300,300 450,200 600,250 800,180 800,600 0,600" fill="#1a3009" opacity="0.6"/>
+  <polygon points="0,450 100,300 250,350 400,250 550,300 700,220 800,240 800,600 0,600" fill="#2d5016" opacity="0.4"/>
+  
+  <!-- Stars -->
+  <circle cx="150" cy="100" r="2" fill="white" opacity="0.8"/>
+  <circle cx="250" cy="80" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="400" cy="120" r="1" fill="white" opacity="0.9"/>
+  <circle cx="550" cy="90" r="2" fill="white" opacity="0.7"/>
+  <circle cx="650" cy="110" r="1.5" fill="white" opacity="0.8"/>
+  
+  <!-- Scout badge symbol (subtle) -->
+  <circle cx="400" cy="350" r="30" fill="none" stroke="white" stroke-width="2" opacity="0.3"/>
+  <path d="M385 350 L395 360 L415 340" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+</svg>

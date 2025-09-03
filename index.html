@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troop 466 – Eagle Makers | Building Leaders Since 1960</title>
+    <meta name="description" content="Join Troop 466 Eagle Makers in Sunnyvale. Building leaders through adventure, community service, and outdoor experiences since 1960.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+    <!-- Floating Logo -->
+    <div class="floating-logo">
+        <img src="assets/images/troop466_logo1.png" alt="Troop 466 Logo" class="floating-logo-img">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#activities" class="nav-link">Activities</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Adventures</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#leadership" class="nav-link">Leadership</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#location" class="nav-link">Join Us</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Day/Night Toggle -->
+    <div class="day-night-toggle">
+        <label class="toggle-switch">
+            <input type="checkbox" id="dayNightToggle">
+            <span class="slider">
+                <span class="slider-icon day-icon">
+                    <i class="fas fa-sun"></i>
+                </span>
+                <span class="slider-icon night-icon">
+                    <i class="fas fa-moon"></i>
+                </span>
+            </span>
+        </label>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background" id="heroBackground">
+            <video autoplay muted loop id="hero-video" style="display: none;">
+                <source src="assets/videos/scout-adventure.mp4" type="video/mp4">
+            </video>
+            <!-- Hero background images -->
+            <img id="heroMorning" src="assets/images/hero5.png" alt="Troop 466 Eagle Makers Mountain Background - Morning" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease-in-out;">
+            <img id="heroNight" src="assets/images/hero_night2.png" alt="Troop 466 Eagle Makers Mountain Background - Night" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.8s ease-in-out;" onerror="this.src='assets/images/hero4.png'">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Troop 466</span>
+                    <span class="title-highlight">Eagle Makers</span>
+                </h1>
+                <p class="hero-subtitle">Building Leaders Since 1960</p>
+                <div class="hero-buttons">
+                    <a href="#join" class="btn btn-primary">
+                        <i class="fas fa-users"></i>
+                        Join Our Troop
+                    </a>
+                    <a href="#activities" class="btn btn-secondary">
+                        <i class="fas fa-mountain"></i>
+                        Upcoming Adventures
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Eagle Makers Legacy</h2>
+                <p class="section-subtitle">Transforming young people into confident leaders through outdoor adventure and community service</p>
+            </div>
+            
+
+            <!-- Page Indicators for Commitments -->
+            <div class="about-page-indicators">
+                <span class="about-page-indicator active" data-page="1" aria-label="Page 1"></span>
+                <span class="about-page-indicator" data-page="2" aria-label="Page 2"></span>
+                <span class="about-page-indicator" data-page="3" aria-label="Page 3"></span>
+                <span class="about-page-indicator" data-page="4" aria-label="Page 4"></span>
+                <span class="about-page-indicator" data-page="5" aria-label="Page 5"></span>
+            </div>
+            
+            <!-- Commitments Container -->
+            <div class="commitments-container">
+                <div class="commitments-grid" id="commitments-grid">
+                    <!-- Page 1: Spirit of Adventure -->
+                    <div class="commitments-page active" data-page="1">
+                        <div class="commitment-card full-section">
+                            <div class="commitment-image" data-bg="scout-spirit"></div>
+                            <div class="commitment-content">
+                                <h3 class="commitment-title">The Spirit of Adventure</h3>
+                                <p class="commitment-description">Every Eagle Scout's journey begins with a single step. Through challenging outdoor adventures, we build character, develop leadership skills, and create memories that last a lifetime. Just like the determined climber scaling the mountain peaks, our scouts learn that with perseverance and teamwork, any summit is achievable.</p>
+                                <div class="commitment-quote">
+                                    <blockquote>"The summit is what drives us, but the climb itself is what matters most"</blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page 2: Commitment to Excellence -->
+                    <div class="commitments-page" data-page="2">
+                        <div class="commitment-card full-section">
+                            <div class="commitment-image" data-bg="excellence"></div>
+                            <div class="commitment-content">
+                                <h3 class="commitment-title">Commitment to Excellence</h3>
+                                <p class="commitment-description">Troop 466 Scouts and leaders have earned most of the highest awards in Scouting. Nearly a dozen Troop Eagle Scouts have earned their Silver Palm (15 merit badges beyond Eagle). One Scout earned the Adams Gold Award for the best Eagle service project in the Western United States. Another Scout earned the Medal of Merit for saving a life.</p>
+                                <div class="commitment-highlights">
+                                    <div class="highlight-item">
+                                        <i class="fas fa-trophy"></i>
+                                        <span>Silver Palm Eagles</span>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <i class="fas fa-award"></i>
+                                        <span>Adams Gold Award</span>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <i class="fas fa-medal"></i>
+                                        <span>Medal of Merit</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page 3: Commitment to Innovation -->
+                    <div class="commitments-page" data-page="3">
+                        <div class="commitment-card full-section">
+                            <div class="commitment-image" data-bg="innovation"></div>
+                            <div class="commitment-content">
+                                <h3 class="commitment-title">Commitment to Innovation</h3>
+                                <p class="commitment-description">Troop 466 was selected as both an alpha and beta site for the Boy Scouts of America's new Science, Technology, Engineering and Mathematics (STEM) initiative, pioneering new ways to engage scouts in technical learning and innovation.</p>
+                                <div class="commitment-badge">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>BSA STEM Pioneer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page 4: Commitment to Adventure -->
+                    <div class="commitments-page" data-page="4">
+                        <div class="commitment-card full-section">
+                            <div class="commitment-image" data-bg="adventure"></div>
+                            <div class="commitment-content">
+                                <h3 class="commitment-title">Commitment to Adventure</h3>
+                                <p class="commitment-description">Troop 466 scouts have enjoyed memorable outdoor experiences that create lifelong memories and build character through adventure.</p>
+                                <div class="adventure-list">
+                                    <div class="adventure-item">
+                                        <i class="fas fa-mountain"></i>
+                                        <span>Five trips to Philmont Scout Ranch</span>
+                                    </div>
+                                    <div class="adventure-item">
+                                        <i class="fas fa-globe"></i>
+                                        <span>200-mile hike across England</span>
+                                    </div>
+                                    <div class="adventure-item">
+                                        <i class="fas fa-horse"></i>
+                                        <span>50-mile Chisholm Trail cattle drive</span>
+                                    </div>
+                                    <div class="adventure-item">
+                                        <i class="fas fa-ship"></i>
+                                        <span>Lewis & Clark Journey recreation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page 5: Eagle Makers Legacy -->
+                    <div class="commitments-page" data-page="5">
+                        <div class="commitment-card full-section">
+                            <div class="commitment-image" data-bg="experience"></div>
+                            <div class="commitment-content">
+                                <h3 class="commitment-title">Eagle Makers Legacy</h3>
+                                <p class="commitment-description">Troop 466's rich history and diverse culture, combined with its spirit of achievement and adventure, guarantees that boys and girls who join us and follow the Trail to Eagle will enjoy a rich, rewarding Scouting experience that has few equals. It's an experience they'll remember fondly—and tap into frequently—for the rest of their lives.</p>
+                                <div class="stats-highlights">
+                                    <div class="stat-highlight-item">
+                                        <div class="stat-icon"><i class="fas fa-medal"></i></div>
+                                        <div class="stat-info">
+                                            <div class="stat-number" data-target="500">500+</div>
+                                            <div class="stat-label">Eagle Scouts</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-highlight-item">
+                                        <div class="stat-icon"><i class="fas fa-hands-helping"></i></div>
+                                        <div class="stat-info">
+                                            <div class="stat-number" data-target="5000">5,000+</div>
+                                            <div class="stat-label">Service Hours</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-highlight-item">
+                                        <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                                        <div class="stat-info">
+                                            <div class="stat-number" data-target="60">60+</div>
+                                            <div class="stat-label">Years Strong</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experience-cta">
+                                    <a href="#location" class="btn btn-primary">
+                                        <i class="fas fa-users"></i>
+                                        Join Our Adventure
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- About Arrow Navigation -->
+                <div class="about-navigation">
+                    <button class="about-nav-arrow about-nav-arrow-left" id="about-prev-arrow" onclick="changeAboutPage(-1)" aria-label="Previous page">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="about-nav-arrow about-nav-arrow-right" id="about-next-arrow" onclick="changeAboutPage(1)" aria-label="Next page">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="activities">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Upcoming Adventures</h2>
+                <p class="section-subtitle">Join us for exciting outdoor experiences and community service</p>
+            </div>
+            <div class="activities-grid" id="activities-grid">
+                <!-- Calendar events will be dynamically loaded here -->
+                <div class="activity-card">
+                    <div class="activity-date">
+                        <span class="date-day">15</span>
+                        <span class="date-month">Sep</span>
+                    </div>
+                    <div class="activity-content">
+                        <h3 class="activity-title">Yosemite Backpacking Trip</h3>
+                        <p class="activity-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Yosemite National Park
+                        </p>
+                        <p class="activity-description">3-day wilderness adventure exploring the backcountry</p>
+                        <a href="#" class="btn btn-outline">Sign Up</a>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-date">
+                        <span class="date-day">22</span>
+                        <span class="date-month">Sep</span>
+                    </div>
+                    <div class="activity-content">
+                        <h3 class="activity-title">Community Food Drive</h3>
+                        <p class="activity-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Sunnyvale Community Center
+                        </p>
+                        <p class="activity-description">Help collect and distribute food to families in need</p>
+                        <a href="#" class="btn btn-outline">Sign Up</a>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-date">
+                        <span class="date-day">05</span>
+                        <span class="date-month">Oct</span>
+                    </div>
+                    <div class="activity-content">
+                        <h3 class="activity-title">Eagle Scout Ceremony</h3>
+                        <p class="activity-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            St. Andrew's Church
+                        </p>
+                        <p class="activity-description">Celebrating our newest Eagle Scout achievement</p>
+                        <a href="#" class="btn btn-outline">RSVP</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="leadership">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Troop Leadership</h2>
+                <p class="section-subtitle">Meet the dedicated leaders who guide our scouts on their journey to Eagle</p>
+            </div>
+            
+            <!-- Page Indicators -->
+            <div class="page-indicators">
+                <span class="page-indicator active" data-page="1" aria-label="Page 1"></span>
+                <span class="page-indicator" data-page="2" aria-label="Page 2"></span>
+            </div>
+            
+            <!-- Leadership Grid Container -->
+            <div class="leadership-container">
+                <div class="leadership-grid" id="leadership-grid">
+                    <!-- Page 1 Leaders -->
+                    <div class="leadership-page active" data-page="1">
+                        <div class="leader-card">
+                            <div class="leader-photo">
+                                <img src="assets/images/sm_male.png" alt="Scout Master" loading="lazy">
+                                <div class="leader-badge primary">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Paul Virdone</h4>
+                                <p class="leader-title">Scout Master</p>
+                                <p class="leader-description">Leading our troop since 2024, Paul brings over 15 years of scouting experience and passion for outdoor adventures.</p>
+                                <a href="mailto:scoutmaster@troop466.org" class="leader-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-photo">
+                                <img src="assets/images/sm_male.png" alt="Assistant Scout Master" loading="lazy">
+                                <div class="leader-badge">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Pratik Wadher</h4>
+                                <p class="leader-title">Assistant Scout Master</p>
+                                <p class="leader-description">Specializing in outdoor programs and wilderness survival skills. Sarah coordinates our camping and hiking activities.</p>
+                                <a href="mailto:asm1@troop466.org" class="leader-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-photo">
+                                <img src="assets/images/sm_male.png" alt="Assistant Scout Master" loading="lazy">
+                                <div class="leader-badge">
+                                    <i class="fas fa-compass"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Nimish Kabe</h4>
+                                <p class="leader-title">Assistant Scout Master</p>
+                                <p class="leader-description">Eagle Scout and advancement coordinator. David helps scouts progress through ranks and earn merit badges.</p>
+                                <a href="mailto:asm2@troop466.org" class="leader-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-photo">
+                                <img src="assets/images/sm_male.png" alt="Assistant Scout Master" loading="lazy">
+                                <div class="leader-badge">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Peter Harrington</h4>
+                                <p class="leader-title">Assistant Scout Master</p>
+                                <p class="leader-description">Community service coordinator organizing volunteer projects and building partnerships with local organizations.</p>
+                                <a href="mailto:asm3@troop466.org" class="leader-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-photo">
+                                <img src="assets/images/sm_female.png" alt="Committee Chair" loading="lazy">
+                                <div class="leader-badge">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Karine Placidet</h4>
+                                <p class="leader-title">Committee Chair</p>
+                                <p class="leader-description">Overseeing troop operations and strategic planning. Michael ensures our programs run smoothly and effectively.</p>
+                                <a href="mailto:chair@troop466.org" class="leader-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-photo">
+                                <img src="assets/images/sm_female.png" alt="Treasurer" loading="lazy">
+                                <div class="leader-badge">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Lisa Wang</h4>
+                                <p class="leader-title">Treasurer</p>
+                                <p class="leader-description">Managing troop finances and fundraising initiatives. Lisa ensures responsible stewardship of our resources.</p>
+                                <a href="mailto:treasurer@troop466.org" class="leader-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Page 2 Leaders -->
+                    <div class="leadership-page" data-page="2">
+                        <div class="leader-card">
+                            <div class="leader-photo">
+                                <img src="assets/images/sm_male.png" alt="Secretary" loading="lazy">
+                                <div class="leader-badge">
+                                    <i class="fas fa-clipboard"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">James Wilson</h4>
+                                <p class="leader-title">Secretary</p>
+                                <p class="leader-description">Maintaining records and handling communications. James keeps our troop organized and informed.</p>
+                                <a href="mailto:secretary@troop466.org" class="leader-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-photo">
+                                <img src="assets/images/sm_female.png" alt="Activities Coordinator" loading="lazy">
+                                <div class="leader-badge">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Amanda Garcia</h4>
+                                <p class="leader-title">Activities Coordinator</p>
+                                <p class="leader-description">Planning and coordinating troop events, meetings, and special activities throughout the year.</p>
+                                <a href="mailto:activities@troop466.org" class="leader-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card youth">
+                            <div class="leader-photo">
+                                <img src="assets/images/testimonial-1.svg" alt="Senior Patrol Leader" loading="lazy">
+                                <div class="leader-badge youth">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Alex Chen</h4>
+                                <p class="leader-title">Senior Patrol Leader</p>
+                                <p class="leader-description">Eagle Scout leading our youth program and mentoring younger scouts in their advancement journey.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card youth">
+                            <div class="leader-photo">
+                                <img src="assets/images/testimonial-2.svg" alt="Assistant Senior Patrol Leader" loading="lazy">
+                                <div class="leader-badge youth">
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Emma Johnson</h4>
+                                <p class="leader-title">Assistant Senior Patrol Leader</p>
+                                <p class="leader-description">Life Scout supporting troop leadership and organizing patrol activities and competitions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card youth">
+                            <div class="leader-photo">
+                                <img src="assets/images/testimonial-3.svg" alt="Patrol Leader" loading="lazy">
+                                <div class="leader-badge youth">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Marcus Williams</h4>
+                                <p class="leader-title">Patrol Leader</p>
+                                <p class="leader-description">Life Scout leading the Eagle Patrol and fostering teamwork and leadership among patrol members.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-photo">
+                                <img src="assets/images/sm_male.png" alt="Training Coordinator" loading="lazy">
+                                <div class="leader-badge">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Robert Kim</h4>
+                                <p class="leader-title">Training Coordinator</p>
+                                <p class="leader-description">Coordinating leader training and development programs to ensure our adult volunteers are well-prepared.</p>
+                                <a href="mailto:training@troop466.org" class="leader-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modern Arrow Navigation -->
+                <div class="leadership-navigation">
+                    <button class="nav-arrow nav-arrow-left" id="prev-arrow" onclick="changePage(-1)" aria-label="Previous page">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-arrow nav-arrow-right" id="next-arrow" onclick="changePage(1)" aria-label="Next page">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Memories in Motion</h2>
+                <p class="section-subtitle">Capturing our adventures and achievements</p>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item" data-category="hiking">
+                    <img src="assets/images/hiking-1.svg" alt="Scouts hiking mountain trail" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h3>Mountain Adventures</h3>
+                            <p>Exploring nature's wonders</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="camping">
+                    <img src="assets/images/campfire-1.svg" alt="Scouts around campfire" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h3>Campfire Stories</h3>
+                            <p>Building memories under the stars</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="service">
+                    <img src="assets/images/service-1.svg" alt="Community service project" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h3>Service Projects</h3>
+                            <p>Making a difference in our community</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ceremonies">
+                    <img src="assets/images/eagle-ceremony-1.svg" alt="Eagle Scout ceremony" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h3>Eagle Ceremonies</h3>
+                            <p>Celebrating achievements</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scout Stories -->
+    <section id="stories" class="stories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Scout Stories</h2>
+                <p class="section-subtitle">Hear from our scouts and families</p>
+            </div>
+            <div class="stories-carousel" id="stories-carousel">
+                <div class="story-slide active">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <p>"Joining Troop 466 was the best decision I ever made. The leadership skills I learned and the friendships I formed will last a lifetime."</p>
+                        </div>
+                        <div class="story-author">
+                            <img src="assets/images/testimonial-1.svg" alt="Alex Chen" class="author-photo">
+                            <div class="author-info">
+                                <h4>Alex Chen</h4>
+                                <p>Eagle Scout, Class of 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-slide">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <p>"The outdoor adventures and community service projects have helped my daughter develop confidence and leadership skills beyond our expectations."</p>
+                        </div>
+                        <div class="story-author">
+                            <img src="assets/images/testimonial-2.svg" alt="Sarah Johnson" class="author-photo">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Parent</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-slide">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <p>"The mentorship from older scouts and adult leaders created an environment where I could grow as a person and discover my potential."</p>
+                        </div>
+                        <div class="story-author">
+                            <img src="assets/images/testimonial-3.svg" alt="Marcus Williams" class="author-photo">
+                            <div class="author-info">
+                                <h4>Marcus Williams</h4>
+                                <p>Life Scout</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="story-navigation">
+                <button class="story-nav-btn active" data-slide="0"></button>
+                <button class="story-nav-btn" data-slide="1"></button>
+                <button class="story-nav-btn" data-slide="2"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Join Our Adventure</h2>
+                <p class="section-subtitle">Ready to become an Eagle Maker?</p>
+            </div>
+            <div class="location-content">
+                <div class="location-info">
+                    <div class="meeting-details">
+                        <h3>Weekly Meetings</h3>
+                        <div class="meeting-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Every Tuesday at 7:00 PM</span>
+                        </div>
+                        <div class="meeting-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>St. Andrew's Church<br>4111 Alma St, Palo Alto, CA 94306</span>
+                        </div>
+                        <div class="contact-buttons">
+                            <a href="https://maps.google.com/?q=St.+Andrew's+Church+4111+Alma+St+Palo+Alto+CA" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-directions"></i>
+                                Get Directions
+                            </a>
+                            <a href="mailto:info@troop466.org" class="btn btn-outline">
+                                <i class="fas fa-envelope"></i>
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-map">
+                    <div id="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.935!2d-122.1430216!3d37.4270565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbb2a4b9c5555%3A0x12345!2sSt.%20Andrew%27s%20Church!5e0!3m2!1sen!2sus!4v1234567890"
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Troop 466 Eagle Makers</h3>
+                    <p>Building leaders through adventure, service, and character development since 1960.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#activities">Activities</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#location">Join Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@troop466.org</p>
+                        <p><i class="fas fa-phone"></i> (650) 555-0123</p>
+                        <p><i class="fas fa-map-marker-alt"></i> St. Andrew's Church<br>Palo Alto, CA</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Troop 466 Eagle Makers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-image" src="" alt="">
+            <div class="lightbox-nav">
+                <button id="lightbox-prev" class="lightbox-nav-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="lightbox-next" class="lightbox-nav-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/lightbox.js"></script>
+</body>
+</html>

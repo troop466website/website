@@ -1,0 +1,73 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="serviceBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="400" height="300" fill="url(#serviceBg)"/>
+  
+  <!-- Ground -->
+  <rect x="0" y="220" width="400" height="80" fill="#2d5016" opacity="0.8"/>
+  
+  <!-- Building outline -->
+  <rect x="50" y="160" width="120" height="60" fill="#8b4513" opacity="0.7"/>
+  <polygon points="50,160 110,130 170,160" fill="#6b3410"/>
+  <rect x="75" y="180" width="20" height="40" fill="#4a90e2"/>
+  <rect x="120" y="180" width="20" height="40" fill="#4a90e2"/>
+  
+  <!-- Scouts working -->
+  <g transform="translate(200,200)">
+    <circle cx="0" cy="-15" r="8" fill="#ff6b35"/>
+    <rect x="-6" y="-5" width="12" height="20" fill="#2d5016" rx="2"/>
+    <rect x="-8" y="15" width="6" height="15" fill="#8b4513" rx="1"/>
+    <rect x="2" y="15" width="6" height="15" fill="#8b4513" rx="1"/>
+    <rect x="-4" y="-5" width="8" height="12" fill="#4a90e2" rx="1"/>
+    <!-- Tool in hand -->
+    <rect x="8" y="-10" width="2" height="15" fill="#8b4513"/>
+    <rect x="6" y="-12" width="6" height="4" fill="#666666"/>
+  </g>
+  
+  <g transform="translate(250,205)">
+    <circle cx="0" cy="-15" r="8" fill="#ff6b35"/>
+    <rect x="-6" y="-5" width="12" height="20" fill="#2d5016" rx="2"/>
+    <rect x="-8" y="15" width="6" height="15" fill="#8b4513" rx="1"/>
+    <rect x="2" y="15" width="6" height="15" fill="#8b4513" rx="1"/>
+    <rect x="-4" y="-5" width="8" height="12" fill="#4a90e2" rx="1"/>
+    <!-- Carrying box -->
+    <rect x="-12" y="-8" width="8" height="6" fill="#8b4513" stroke="#6b3410" stroke-width="1"/>
+  </g>
+  
+  <g transform="translate(300,200)">
+    <circle cx="0" cy="-15" r="8" fill="#ff6b35"/>
+    <rect x="-6" y="-5" width="12" height="20" fill="#2d5016" rx="2"/>
+    <rect x="-8" y="15" width="6" height="15" fill="#8b4513" rx="1"/>
+    <rect x="2" y="15" width="6" height="15" fill="#8b4513" rx="1"/>
+    <rect x="-4" y="-5" width="8" height="12" fill="#4a90e2" rx="1"/>
+  </g>
+  
+  <!-- Work materials -->
+  <rect x="180" y="240" width="15" height="8" fill="#8b4513"/>
+  <rect x="200" y="235" width="12" height="10" fill="#8b4513"/>
+  <rect x="220" y="242" width="18" height="6" fill="#8b4513"/>
+  
+  <!-- Tools -->
+  <rect x="320" y="235" width="2" height="20" fill="#8b4513"/>
+  <rect x="318" y="233" width="6" height="4" fill="#666666"/>
+  
+  <rect x="330" y="240" width="2" height="15" fill="#8b4513"/>
+  <circle cx="331" cy="238" r="3" fill="#666666"/>
+  
+  <!-- Clouds -->
+  <circle cx="80" cy="80" r="15" fill="white" opacity="0.7"/>
+  <circle cx="95" cy="80" r="18" fill="white" opacity="0.7"/>
+  <circle cx="110" cy="80" r="12" fill="white" opacity="0.7"/>
+  
+  <circle cx="300" cy="60" r="12" fill="white" opacity="0.6"/>
+  <circle cx="315" cy="60" r="15" fill="white" opacity="0.6"/>
+  <circle cx="330" cy="60" r="10" fill="white" opacity="0.6"/>
+  
+  <text x="200" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white" opacity="0.9">Community Service</text>
+</svg>
