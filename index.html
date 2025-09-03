@@ -63,17 +63,20 @@
     </nav>
 
     <!-- Day/Night Toggle -->
-    <div class="day-night-toggle">
-        <label class="toggle-switch">
-            <input type="checkbox" id="dayNightToggle">
-            <span class="slider">
-                <span class="slider-icon day-icon">
-                    <i class="fas fa-sun"></i>
-                </span>
-                <span class="slider-icon night-icon">
-                    <i class="fas fa-moon"></i>
-                </span>
+    <div class="toggleWrapper">
+        <input type="checkbox" class="dn" id="dayNightToggle"/>
+        <label for="dayNightToggle" class="toggle">
+            <span class="toggle__handler">
+                <span class="crater crater--1"></span>
+                <span class="crater crater--2"></span>
+                <span class="crater crater--3"></span>
             </span>
+            <span class="star star--1"></span>
+            <span class="star star--2"></span>
+            <span class="star star--3"></span>
+            <span class="star star--4"></span>
+            <span class="star star--5"></span>
+            <span class="star star--6"></span>
         </label>
     </div>
 
@@ -96,11 +99,11 @@
                 </h1>
                 <p class="hero-subtitle">Building Leaders Since 1960</p>
                 <div class="hero-buttons">
-                    <a href="#join" class="btn btn-primary">
+                    <a href="#location" class="btn btn-primary">
                         <i class="fas fa-users"></i>
                         Join Our Troop
                     </a>
-                    <a href="#activities" class="btn btn-secondary">
+                    <a href="#calendar" class="btn btn-secondary">
                         <i class="fas fa-mountain"></i>
                         Upcoming Adventures
                     </a>
@@ -319,7 +322,7 @@
     <section id="activities" class="activities">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Program</h2>
+                <h2 class="section-title">Troop Activities</h2>
                 <p class="section-subtitle">Comprehensive activities designed to develop leadership, outdoor skills, and character</p>
             </div>
             
@@ -595,6 +598,24 @@
                         
                         <div class="leader-card">
                             <div class="leader-photo">
+                                <img src="assets/images/sm_female.png" alt="Committee Chairman" loading="lazy">
+                                <div class="leader-badge">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                            </div>
+                            <div class="leader-info">
+                                <h4 class="leader-name">Karine Placidet</h4>
+                                <p class="leader-title">Committee Chairman</p>
+                                <p class="leader-description">Overseeing troop operations, strategic planning, and ensuring our programs run smoothly and effectively.</p>
+                                <a href="mailto:chair@troop466.org" class="leader-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-photo">
                                 <img src="assets/images/sm_male.png" alt="Assistant Scout Master" loading="lazy">
                                 <div class="leader-badge">
                                     <i class="fas fa-leaf"></i>
@@ -665,6 +686,10 @@
                             </div>
                         </div>
                         
+                    </div>
+                    
+                    <!-- Page 2 Leaders -->
+                    <div class="leadership-page" data-page="2">
                         <div class="leader-card">
                             <div class="leader-photo">
                                 <img src="assets/images/sm_male.png" alt="Assistant Scout Master" loading="lazy">
@@ -682,10 +707,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Page 2 Leaders -->
-                    <div class="leadership-page" data-page="2">
+                        
                         <div class="leader-card">
                             <div class="leader-photo">
                                 <img src="assets/images/sm_male.png" alt="Assistant Scout Master" loading="lazy">
@@ -776,6 +798,10 @@
                             </div>
                         </div>
                         
+                    </div>
+                    
+                    <!-- Page 3: Committee & Support -->
+                    <div class="leadership-page" data-page="3">
                         <div class="leader-card">
                             <div class="leader-photo">
                                 <img src="assets/images/sm_male.png" alt="Assistant Scout Master" loading="lazy">
@@ -788,27 +814,6 @@
                                 <p class="leader-title">Assistant Scoutmaster</p>
                                 <p class="leader-description">Guiding scouts in outdoor skills and advancement opportunities.</p>
                                 <a href="mailto:asm@troop466.org" class="leader-contact">
-                                    <i class="fas fa-envelope"></i>
-                                    Contact
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Page 3: Committee & Support -->
-                    <div class="leadership-page" data-page="3">
-                        <div class="leader-card">
-                            <div class="leader-photo">
-                                <img src="assets/images/sm_female.png" alt="Committee Chairman" loading="lazy">
-                                <div class="leader-badge">
-                                    <i class="fas fa-users-cog"></i>
-                                </div>
-                            </div>
-                            <div class="leader-info">
-                                <h4 class="leader-name">Karine Placidet</h4>
-                                <p class="leader-title">Committee Chairman</p>
-                                <p class="leader-description">Overseeing troop operations, strategic planning, and ensuring our programs run smoothly and effectively.</p>
-                                <a href="mailto:chair@troop466.org" class="leader-contact">
                                     <i class="fas fa-envelope"></i>
                                     Contact
                                 </a>
@@ -851,23 +856,6 @@
                             </div>
                         </div>
                         
-                        <div class="leader-card">
-                            <div class="leader-photo">
-                                <img src="assets/images/sm_male.png" alt="Webmaster" loading="lazy">
-                                <div class="leader-badge">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                            </div>
-                            <div class="leader-info">
-                                <h4 class="leader-name">Anshul Pathak</h4>
-                                <p class="leader-title">Webmaster</p>
-                                <p class="leader-description">Developing and maintaining our website, ensuring modern functionality and user experience.</p>
-                                <a href="mailto:webmaster@troop466.org" class="leader-contact">
-                                    <i class="fas fa-envelope"></i>
-                                    Contact
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 
@@ -1078,7 +1066,7 @@
                             <span class="date-month">Tue</span>
                         </div>
                         <div class="event-content">
-                            <div class="event-badge">Weekly</div>
+                            <div class="event-badge">Bi-Weekly</div>
                             <h3 class="event-title">Troop Meetings</h3>
                             <p class="event-location">
                                 <i class="fas fa-map-marker-alt"></i>
