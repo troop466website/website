@@ -1,0 +1,64 @@
+# Cache Control Settings for Troop 466 Website
+# Prevent caching of HTML and CSS files but allow image caching
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # No caching for HTML files
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # No caching for CSS files  
+    ExpiresByType text/css "access plus 0 seconds"
+    
+    # No caching for JavaScript files
+    ExpiresByType application/javascript "access plus 0 seconds"
+    ExpiresByType text/javascript "access plus 0 seconds"
+    
+    # Cache images for longer periods
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    
+    # Cache fonts
+    ExpiresByType font/woff "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 month"
+    ExpiresByType application/font-woff "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Prevent caching of HTML files
+    <FilesMatch "\.(html|htm)$">
+        Header always set Cache-Control "no-cache, no-store, must-revalidate"
+        Header always set Pragma "no-cache"
+        Header always set Expires "0"
+    </FilesMatch>
+    
+    # Prevent caching of CSS files
+    <FilesMatch "\.(css)$">
+        Header always set Cache-Control "no-cache, no-store, must-revalidate"
+        Header always set Pragma "no-cache"
+        Header always set Expires "0"
+    </FilesMatch>
+    
+    # Prevent caching of JavaScript files
+    <FilesMatch "\.(js)$">
+        Header always set Cache-Control "no-cache, no-store, must-revalidate"
+        Header always set Pragma "no-cache" 
+        Header always set Expires "0"
+    </FilesMatch>
+    
+    # Allow caching for images
+    <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp)$">
+        Header always set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
+# Additional security and performance headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>

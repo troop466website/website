@@ -6,6 +6,11 @@
     <title>Troop 466 – Eagle Makers | Building Leaders Since 1960</title>
     <meta name="description" content="Join Troop 466 Eagle Makers in Sunnyvale. Building leaders through adventure, community service, and outdoor experiences since 1960.">
     
+    <!-- Cache Control Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +19,10 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/animations.css">
+    <!-- CSS with cache busting -->
+    <link rel="stylesheet" href="styles/main.css?v=1733367260">
+    <link rel="stylesheet" href="styles/components.css?v=1733367260">
+    <link rel="stylesheet" href="styles/animations.css?v=1733367260">
 </head>
 <body>
     <!-- Floating Logo -->
@@ -1240,9 +1245,12 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script src="scripts/main.js"></script>
-    <script src="scripts/animations.js"></script>
-    <script src="scripts/lightbox.js"></script>
+    <!-- Cache Buster Utility (load first) -->
+    <script src="scripts/cache-buster.js?v=1733367260"></script>
+    
+    <!-- JavaScript with cache busting -->
+    <script src="scripts/main.js?v=1733367260"></script>
+    <script src="scripts/animations.js?v=1733367260"></script>
+    <script src="scripts/lightbox.js?v=1733367260"></script>
 </body>
 </html>
