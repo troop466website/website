@@ -14,18 +14,18 @@
     ExpiresByType application/javascript "access plus 0 seconds"
     ExpiresByType text/javascript "access plus 0 seconds"
     
-    # Cache images for longer periods
-    ExpiresByType image/jpg "access plus 1 month"
-    ExpiresByType image/jpeg "access plus 1 month"
-    ExpiresByType image/gif "access plus 1 month"
-    ExpiresByType image/png "access plus 1 month"
-    ExpiresByType image/svg+xml "access plus 1 month"
-    ExpiresByType image/webp "access plus 1 month"
+    # Cache images for 1 day only
+    ExpiresByType image/jpg "access plus 1 day"
+    ExpiresByType image/jpeg "access plus 1 day"
+    ExpiresByType image/gif "access plus 1 day"
+    ExpiresByType image/png "access plus 1 day"
+    ExpiresByType image/svg+xml "access plus 1 day"
+    ExpiresByType image/webp "access plus 1 day"
     
-    # Cache fonts
-    ExpiresByType font/woff "access plus 1 month"
-    ExpiresByType font/woff2 "access plus 1 month"
-    ExpiresByType application/font-woff "access plus 1 month"
+    # Cache fonts for 1 day
+    ExpiresByType font/woff "access plus 1 day"
+    ExpiresByType font/woff2 "access plus 1 day"
+    ExpiresByType application/font-woff "access plus 1 day"
 </IfModule>
 
 <IfModule mod_headers.c>
@@ -50,9 +50,9 @@
         Header always set Expires "0"
     </FilesMatch>
     
-    # Allow caching for images
+    # Allow caching for images (1 day = 86400 seconds)
     <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp)$">
-        Header always set Cache-Control "public, max-age=2592000"
+        Header always set Cache-Control "public, max-age=86400"
     </FilesMatch>
 </IfModule>
 
